@@ -59,6 +59,7 @@
                     android:layout_marginTop="30dp"
                     />
 
+
             </LinearLayout>
 
         </LinearLayout>
@@ -74,6 +75,7 @@
             android:layout_marginTop="10dp"
             android:textSize="24sp"
             />
+
 
     </LinearLayout>
 

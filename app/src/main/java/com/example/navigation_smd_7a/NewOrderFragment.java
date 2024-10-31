@@ -2,25 +2,30 @@ package com.example.navigation_smd_7a;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
 import java.util.ArrayList;
+
 
 public class NewOrderFragment extends Fragment {
 
-    private Context context;
+    Context context;
     private ListView lvNewOrderList;
     private ProductAdapter adapter;
     private ArrayList<Product> products = new ArrayList<>();
     private ProductDB productDB;
 
-    // Required empty public constructor
-    public NewOrderFragment() {}
+    public NewOrderFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -28,7 +33,12 @@ public class NewOrderFragment extends Fragment {
         this.context = context;
     }
 
-    @Override
+
+
+
+
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -44,7 +54,7 @@ public class NewOrderFragment extends Fragment {
         productDB = new ProductDB(context);
 
         // Set up the adapter with the initial empty product list
-        adapter = new ProductAdapter(context, R.layout.product_item_design, products);
+        adapter = new ProductAdapter(context, R.layout.product_item_design, products,false);
         lvNewOrderList.setAdapter(adapter);
     }
 
@@ -63,4 +73,5 @@ public class NewOrderFragment extends Fragment {
 
         adapter.notifyDataSetChanged(); // Notify adapter of data changes to update the ListView
     }
+
 }

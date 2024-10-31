@@ -87,7 +87,7 @@ public class ProductDB {
 
     }
 
-    
+
     private class DBHelper extends SQLiteOpenHelper
     {
 

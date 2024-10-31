@@ -28,7 +28,7 @@ public class ScheduleFragment extends Fragment {
     }
 
 
-    // TODO: Rename and change types and number of parameters
+
 
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -51,7 +51,7 @@ public class ScheduleFragment extends Fragment {
         productDB = new ProductDB(context);
 
         // Set up the adapter with the initial empty product list
-        adapter = new ProductAdapter(context, R.layout.product_item_design, products);
+        adapter = new ProductAdapter(context, R.layout.product_item_design, products,true);
         lvShOrderList.setAdapter(adapter);
     }
 
