@@ -51,7 +51,7 @@ public class ScheduleFragment extends Fragment {
         productDB = new ProductDB(context);
 
         // Set up the adapter with the initial empty product list
-        adapter = new ProductAdapter(context, R.layout.product_item_design, products,true);
+        adapter = new ProductAdapter(context, R.layout.product_item_design, products,true,false);
         lvShOrderList.setAdapter(adapter);
     }
 
@@ -65,7 +65,7 @@ public class ScheduleFragment extends Fragment {
     private void refreshProductList() {
         productDB.open();
         products.clear();
-        products.addAll(productDB.fetchProducts()); // Fetch updated product list
+        products.addAll(productDB.fetchProducts("scheduled")); // Fetch updated product list
         productDB.close();
 
         adapter.notifyDataSetChanged(); // Notify adapter of data changes to update the ListView

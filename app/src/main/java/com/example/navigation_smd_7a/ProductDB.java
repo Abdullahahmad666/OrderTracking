@@ -63,28 +63,36 @@ public class ProductDB {
         return db.update(DATABASE_TABLE_NAME, cv, KEY_ID+"=?", new String[]{id+""});
     }
 
-    public ArrayList<Product> fetchProducts()
-    {
+    // ProductDB.java
+    public ArrayList<Product> fetchProducts(String status) {
         SQLiteDatabase readDb = dbHelper.getReadableDatabase();
         ArrayList<Product> products = new ArrayList<>();
-        String []columns = new String[]{KEY_ID, KEY_TITLE, KEY_DATE, KEY_PRICE};
+        String[] columns = {KEY_ID, KEY_TITLE, KEY_DATE, KEY_PRICE};
+        String selection = KEY_STATUS + "=?";
+        String[] selectionArgs = {status};
 
-        Cursor cursor = readDb.query(DATABASE_TABLE_NAME, columns, null, null, null, null, null);
-        if(cursor!=null) {
+        Cursor cursor = readDb.query(DATABASE_TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+        if (cursor != null) {
+            int idIndex = cursor.getColumnIndex(KEY_ID);
+            int titleIndex = cursor.getColumnIndex(KEY_TITLE);
+            int dateIndex = cursor.getColumnIndex(KEY_DATE);
+            int priceIndex = cursor.getColumnIndex(KEY_PRICE);
 
-            int id_index = cursor.getColumnIndex(KEY_ID);
-            int title_index = cursor.getColumnIndex(KEY_TITLE);
-            int date_index = cursor.getColumnIndex(KEY_DATE);
-            int price_index = cursor.getColumnIndex(KEY_PRICE);
             while (cursor.moveToNext()) {
-                Product p = new Product(cursor.getInt(id_index), cursor.getString(title_index), cursor.getString(date_index),
-                        cursor.getInt(price_index), "");
+                Product p = new Product(cursor.getInt(idIndex), cursor.getString(titleIndex), cursor.getString(dateIndex),
+                        cursor.getInt(priceIndex), status);
                 products.add(p);
             }
             cursor.close();
         }
         return products;
+    }
 
+    public int updateStatus(int id, String status) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_STATUS, status);
+        return db.update(DATABASE_TABLE_NAME, cv, KEY_ID + "=?", new String[]{String.valueOf(id)});
     }
 
 
