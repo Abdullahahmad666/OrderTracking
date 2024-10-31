@@ -6,12 +6,12 @@
     tools:context=".ScheduleFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="20sp"
-        android:text="Scheduled Orders"
+        android:id="@+id/lvSchOrdersList"
         />
 
 

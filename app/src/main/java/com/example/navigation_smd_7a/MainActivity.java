@@ -94,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
                         switch (position)
                         {
                             case 0:
+                                tab.setText("New Orders");
+                                tab.setIcon(R.drawable.new_orders_icon);
+                                break;
+                            case 1:
                                 tab.setText("Scheduled");
                                 tab.setIcon(R.drawable.schedule_icon);
                                 BadgeDrawable badgeDrawable = tab.getOrCreateBadge();
@@ -101,13 +105,9 @@ public class MainActivity extends AppCompatActivity {
                                 badgeDrawable.setMaxCharacterCount(2);
                                 badgeDrawable.setVisible(true);
                                 break;
-                            case 1:
+                            default:
                                 tab.setText("Delivered");
                                 tab.setIcon(R.drawable.delivered_icon);
-                                break;
-                            default:
-                                    tab.setText("New Orders");
-                                    tab.setIcon(R.drawable.new_orders_icon);
                         }
                     }
                 });

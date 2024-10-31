@@ -30,18 +30,13 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         }
 
         TextView tvTitle = v.findViewById(R.id.tvProductTitle);
-        ImageView ivEdit = v.findViewById(R.id.ivEdit);
+
         ImageView ivDelete = v.findViewById(R.id.ivDelete);
 
         Product p = getItem(position);
         tvTitle.setText(p.getPrice()+" : "+p.getTitle());
 
-        ivEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
         ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

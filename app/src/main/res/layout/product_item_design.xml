@@ -53,17 +53,10 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/edit_icon"
-                    android:padding="10dp"
-                    android:id="@+id/ivEdit"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:src="@drawable/delete_icon"
                     android:id="@+id/ivDelete"
                     android:padding="10dp"
+                    android:layout_marginTop="30dp"
                     />
 
             </LinearLayout>

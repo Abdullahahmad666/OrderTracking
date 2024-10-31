@@ -17,11 +17,11 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         switch (position)
         {
             case 0:
-                return new ScheduleFragment();
-            case 1:
-                return new DeliveredFragment();
-            default:
                 return new NewOrderFragment();
+            case 1:
+                return new ScheduleFragment();
+            default:
+                return new DeliveredFragment();
         }
     }
 
